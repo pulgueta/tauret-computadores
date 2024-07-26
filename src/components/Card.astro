@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  price: number;
+  href: string;
+}
+
+const { href, title, price } = Astro.props;
+
+const formattedPrice = new Intl.NumberFormat("es-CO", {
+  style: "currency",
+  currency: "COP",
+})
+  .format(price)
+  .replace(",00", "");
+---
+
+<article class='border max-w-sm rounded-xl p-4 mx-auto'>
+  <Image
+    src='https://tauretcomputadores.com/images/products/Product_202407181818061364050215.perfil%20png.webp'
+    alt='NVIDIA GeForce RTX 4080 Super'
+    class='w-full rounded-xl mb-4 object-cover'
+    width={300}
+    height={300}
+  />
+  <h2 class='font-bold text-balance text-xl mb-2 tracking-tight'>
+    {title}
+  </h2>
+  <p class='text-lg mb-4'>
+    {`COP ${formattedPrice}`}
+  </p>
+  <div class='flex flex-col gap-y-2 max-w-sm text-white font-semibold'>
+    <a class='bg-blue-500 px-4 py-2 rounded max-w-max' href={href}>Ver más</a>
+    <button class='max-w-max bg-green-600 px-4 py-2 rounded'
+      >Añadir al carrito</button
+    >
+  </div>
+</article>

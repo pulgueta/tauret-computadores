@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout
+  title='Tauret Computadores'
+  description='La mejor tienda de computadores y consolas en toda Colombia, aprovecha los mejores precios y ofertas. ¡No te quedes sin tu equipo gamer!'
+>
+  <main class='min-h-dvh'>
+    <section class='bg-gray-100 py-8'>
+      <div class='max-w-7xl mx-auto p-2 flex-col flex gap-4'>
+        <Image
+          src='https://tauretcomputadores.com/new/img/logo.png?v=3'
+          alt='Logo de Tauret Computadores'
+          class='w-full max-w-xl mx-auto'
+          width='200'
+          height='200'
+        />
+        <h1
+          class='text-center text-balance text-4xl font-bold tracking-tight mb-4'
+        >
+          Encuentra aquí los mejores precios
+        </h1>
+      </div>
+      <Card
+        title='NVIDIA GeForce RTX 4080 Super'
+        price={4800000}
+        href='/computadores'
+      />
+    </section>
+  </main>
+</Layout>
